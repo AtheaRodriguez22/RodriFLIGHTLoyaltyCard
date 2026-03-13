@@ -2,37 +2,39 @@
 using System.Collections.Generic;
 namespace flightloyaltyCard { 
 
-static void Main()
+static class Program
 {
-    string name = "";
-    string email = "";
-    string contact = "";
-    string rewardName = "";
-    int points = 0;
-    int voucherUsed = 0;
-    int choice;
-    int reward;
-    int rewardCost = 0;
+    static string name = "";
+    static string email = "";
+    static string contact = "";
+    static string rewardName = "";
+    static int points = 0;
+    
+       static string[] pointsHistory = new string[100];
+       static int historyCount = 0;
 
-        string[] pointsHistory = new string[100];
-        int historyCount = 0;
+       static string[] voucherCodes = { "FLY50", "BONUS100", "WELCOME200" };
+       static int[] voucherPoints = { 50, 100, 200 };
 
-        string[] voucherCodes = { "FLY50", "BONUS100", "WELCOME200" };
-        int[] voucherPoints = { 50, 100, 200 };
+       static string[] usedVouchers = new string[10];
+       static int usedCount = 0;
+       
+       static void Main(string[] args)
+        {
 
-        string[] usedVouchers = new string[10];
-        int usedCount = 0;
+            Console.WriteLine("===== WELCOME TO FLIGHT LOYALTY CARD SYSTEM =====");
 
-        Console.WriteLine("===== WELCOME TO FLIGHT LOYALTY CARD SYSTEM =====");
-
-        int actualChoice = 0;
+        int choice;
     do
     {
-        bool hasAccount = name! = " ";
-        int n = hasAccount ? 0 : 1;
+           bool hasAccount = name != "";
+           int n = hasAccount ? 0 : 1;
 
-            if (!hasAccount)
+            Console.WriteLine();
+                if (!hasAccount)
+                {
             Console.WriteLine("1. Create An Account");
+                }
             Console.WriteLine((1 + n) + ". Edit Information");
             Console.WriteLine((2 + n) + ". View Account & Points Summary");
             Console.WriteLine((3 + n) + ". Redeem Points");
@@ -40,13 +42,12 @@ static void Main()
             Console.WriteLine((5 + n) + ". Delete Account");
             Console.WriteLine((6 + n) + ". Exit");
             Console.Write("Choose: ");
-           
-            if (!int.TryParse(Console.ReadLine(), out choice))
-            {
-                Console.WriteLine("Invalid input. Please enter a number.");
-                choice = 0;
-                continue;
-                int actualChoice = hasAccount ? choice + 1 : choice;
+
+                if (!int.TryParse(Console.ReadLine(), out choice))
+                {
+                    Console.WriteLine("Invalid input. Please enter a number.");
+                    continue; }
+            int actualChoice = hasAccount ? choice + 1 : choice;
 
     switch (actualChoice) {
     case 1:
@@ -69,13 +70,11 @@ static void Main()
     break;
     case 2:
            Console.WriteLine("\n----Edit Information----");
-           Console.Write("New Name");
+           Console.Write("New Name: ");
            name = Console.ReadLine();
-           Console.Write("Email");
+           Console.Write("Email: ");
            email = Console.ReadLine();
-           Console.Write("Email");
-           email = Console.ReadLine();
-           Console.Write("Contact");
+           Console.Write("Contact: ");
            contact = Console.ReadLine();
            Console.WriteLine("\n----Your Information Is Updated!----");
     break;
@@ -93,11 +92,10 @@ static void Main()
              {
            Console.WriteLine("No activity yet.");}
             else{
-            for (int i = 0; i < historyCount; i++)
+            for (int i = 0; i < historyCount; i++) 
           Console.WriteLine(pointsHistory[i]);
-                        }
-            breaak:
-                        { 
+          }
+          break;
     case 4:
           Console.WriteLine("\n--- Redeem Options ---");
           Console.WriteLine("1. KFC             - 100 pts");
@@ -107,10 +105,13 @@ static void Main()
           Console.WriteLine("5. Flight Discount - 300 pts");
           Console.Write("Choose reward: ");
 
-            if (!int.TryParse(Console.ReadLine(), out reward)){
+          int reward;
+              int rewardCost = 0;
+                        if (!int.TryParse(Console.ReadLine(), out reward)){
           Console.WriteLine("Invalid choice.");
     break;
             }
+
             if (reward == 1) { rewardName = "KFC"; rewardCost = 100; }
             else if (reward == 2) { rewardName = "Jollibee"; rewardCost = 120; }
             else if (reward == 3) { rewardName = "Wendy's"; rewardCost = 150; }
@@ -183,7 +184,7 @@ if (!found){
     break;
                         }
 
-            } while (choice != 7 && !(name != "" && choice == 6)) ;
+            } while (choice != 7);
 
         }
     }

@@ -1,4 +1,4 @@
-﻿using LoyaltyDataService;
+﻿using FLIGHTLoyaltyCardModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace FLIGHTLoyaltyCardDataService
+namespace FLIGHTLoyaltyCardAppService
 {
-    public class LoyaltyDataService
+    public class LoyaltyAppService
     {
         private List<LoyaltyAccount> _accounts = new List<LoyaltyAccount>();
         private List<RewardOption> _rewards = new List<RewardOption>
@@ -20,11 +20,11 @@ namespace FLIGHTLoyaltyCardDataService
             new RewardOption { RewardID = 5, Name = "Flight Discount", Cost = 300 },
         };
 
-        private List<Voucher> _vouchers = new List<Voucher>
+        private List<VoucherCode> _vouchers = new List<VoucherCode>
         {
-            new Voucher { Code = "FLY50",      Points = 50  },
-            new Voucher { Code = "BONUS100",   Points = 100 },
-            new Voucher { Code = "WELCOME200", Points = 200 },
+            new VoucherCode { Code = "FLY50",      Points = 50  },
+            new VoucherCode { Code = "BONUS100",   Points = 100 },
+            new VoucherCode { Code = "WELCOME200", Points = 200 },
         };
 
         public void Add(LoyaltyAccount account)
@@ -72,9 +72,15 @@ namespace FLIGHTLoyaltyCardDataService
             return _rewards.FirstOrDefault(r => r.RewardID == rewardId);
         }
 
-        public Voucher? GetVoucherByCode(string code)
+        public VoucherCode? GetVoucherByCode(string code)
         {
             return _vouchers.FirstOrDefault(v => v.Code == code.ToUpper().Trim());
         }
+    }
+
+    internal class VoucherCode
+    {
+        public string Code { get; set; }
+        public int Points { get; set; }
     }
 }

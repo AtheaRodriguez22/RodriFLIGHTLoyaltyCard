@@ -4,6 +4,7 @@ namespace flightloyaltyCard {
 
 static class Program
 {
+        //add me flight number or password (mpin) or mpin is flight number
     static string name = "";
     static string email = "";
     static string contact = "";
@@ -102,7 +103,7 @@ static class Program
           Console.WriteLine("2. Jollibee        - 120 pts");
           Console.WriteLine("3. Wendy's         - 150 pts");
           Console.WriteLine("4. McDonald's      - 130 pts");
-          Console.WriteLine("5. Flight Discount - 300 pts");
+          Console.WriteLine("5. Flight Discount - 300 pts"); //more points
           Console.Write("Choose reward: ");
 
           int reward;
@@ -116,7 +117,7 @@ static class Program
             else if (reward == 2) { rewardName = "Jollibee"; rewardCost = 120; }
             else if (reward == 3) { rewardName = "Wendy's"; rewardCost = 150; }
             else if (reward == 4) { rewardName = "McDonald's"; rewardCost = 130; }
-            else if (reward == 5) { rewardName = "Flight Discount"; rewardCost = 300; }
+            else if (reward == 5) { rewardName = "Flight Discount"; rewardCost = 300; } //i'll add free flights or seat upgrades or merch
             else
             {
             Console.WriteLine("Invalid choice.");

@@ -2,24 +2,30 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml.Linq;
 
-namespace FLIGHTLoyaltyCardDL
+namespace FLIGHTLoyaltyCardDataService
 {
-    public class LoyaltyDataService
+    public class LoyaltyAccount
     {
         public List<LoyaltyAccount> dummyAccounts = new List<LoyaltyAccount>();
         public List<RewardOption> dummyRewards = new List<RewardOption>();
         public List<VoucherCode> dummyVouchers = new List<VoucherCode>();
 
-        public LoyaltyDataService()
+        public string Name { get; private set; } //aayusin uli 
+        public string Email { get; private set; }
+        public string Contact { get; private set; }
+        public int Points { get; private set; }
+        public object PointsHistory { get; private set; }
+        public object UsedVouchers { get; private set; }
+
+        public LoyaltyAccount()
         {
             LoyaltyAccount account1 = new LoyaltyAccount
             {
                 Name = "",
                 Email = "",
                 Contact = "",
-                Points = 200
+                Points = 0
             };
 
             LoyaltyAccount account2 = new LoyaltyAccount
@@ -31,7 +37,7 @@ namespace FLIGHTLoyaltyCardDL
             };
 
             dummyAccounts.Add(account1);
-            dummyAccounts.Add(account2);
+            dummyAccounts.Add(account2); //testing
 
             dummyRewards.Add(new RewardOption { RewardID = 1, Name = "KFC", Cost = 100 });
             dummyRewards.Add(new RewardOption { RewardID = 2, Name = "Jollibee", Cost = 120 });

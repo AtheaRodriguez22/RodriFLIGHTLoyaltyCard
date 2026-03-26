@@ -4,7 +4,7 @@ namespace flightloyaltyCard {
 
 static class Program
 {
-        //add me flight number or password (mpin) or mpin is flight number
+
     static string name = "";
     static string email = "";
     static string contact = "";

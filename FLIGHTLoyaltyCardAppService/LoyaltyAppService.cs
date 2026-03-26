@@ -76,11 +76,4 @@ namespace FLIGHTLoyaltyCardAppService
         {
             return _vouchers.FirstOrDefault(v => v.Code == code.ToUpper().Trim());
         }
-    }
-
-    internal class VoucherCode
-    {
-        public string Code { get; set; }
-        public int Points { get; set; }
-    }
-}
+    }} 

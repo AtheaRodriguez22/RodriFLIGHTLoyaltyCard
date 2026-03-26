@@ -5,69 +5,48 @@ using System.Linq;
 
 namespace FLIGHTLoyaltyCardDataService
 {
-    public class LoyaltyAccount
+    public class LoyaltyDataService
     {
-        public List<LoyaltyAccount> dummyAccounts = new List<LoyaltyAccount>();
-        public List<RewardOption> dummyRewards = new List<RewardOption>();
-        public List<VoucherCode> dummyVouchers = new List<VoucherCode>();
+        private List<LoyaltyAccount> accounts = new List<LoyaltyAccount>();
+        private List<RewardOption> rewards = new List<RewardOption>();
+        private List<VoucherCode> vouchers = new List<VoucherCode>();
 
-        public string Name { get; private set; } //aayusin uli 
-        public string Email { get; private set; }
-        public string Contact { get; private set; }
-        public int Points { get; private set; }
-        public object PointsHistory { get; private set; }
-        public object UsedVouchers { get; private set; }
-
-        public LoyaltyAccount()
+        public LoyaltyDataService()
         {
-            LoyaltyAccount account1 = new LoyaltyAccount
+            accounts.Add(new LoyaltyAccount
             {
-                Name = "",
-                Email = "",
-                Contact = "",
-                Points = 0
-            };
-
-            LoyaltyAccount account2 = new LoyaltyAccount
-            {
-                Name = " ",
-                Email = " ",
-                Contact = " ",
+                Name = "Athea",
+                Email = "abctest@email.com",
+                Contact = "09999999999",
                 Points = 500
-            };
+            });
+            rewards.Add(new RewardOption { RewardID = 1, Name = "KFC", Cost = 100 });
+            rewards.Add(new RewardOption { RewardID = 2, Name = "Jollibee", Cost = 120 });
+            rewards.Add(new RewardOption { RewardID = 3, Name = "Wendy's", Cost = 150 });
+            rewards.Add(new RewardOption { RewardID = 4, Name = "McDonald's", Cost = 130 });
+            rewards.Add(new RewardOption { RewardID = 5, Name = "Flight Discount", Cost = 300 });
 
-            dummyAccounts.Add(account1);
-            dummyAccounts.Add(account2); //testing
-
-            dummyRewards.Add(new RewardOption { RewardID = 1, Name = "KFC", Cost = 100 });
-            dummyRewards.Add(new RewardOption { RewardID = 2, Name = "Jollibee", Cost = 120 });
-            dummyRewards.Add(new RewardOption { RewardID = 3, Name = "Wendy's", Cost = 150 });
-            dummyRewards.Add(new RewardOption { RewardID = 4, Name = "McDonald's", Cost = 130 });
-            dummyRewards.Add(new RewardOption { RewardID = 5, Name = "Flight Discount", Cost = 300 });
-
-            dummyVouchers.Add(new VoucherCode { Code = "FLY50", Points = 50 });
-            dummyVouchers.Add(new VoucherCode { Code = "BONUS100", Points = 100 });
-            dummyVouchers.Add(new VoucherCode { Code = "WELCOME200", Points = 200 });
+            vouchers.Add(new VoucherCode { Code = "FLY50", Points = 50 });
+            vouchers.Add(new VoucherCode { Code = "BONUS100", Points = 100 });
+            vouchers.Add(new VoucherCode { Code = "WELCOME200", Points = 200 });
         }
-
         public void Add(LoyaltyAccount account)
         {
-            dummyAccounts.Add(account);
+            accounts.Add(account);
         }
-
-        public LoyaltyAccount? GetById(Guid id)
+        public LoyaltyAccount? GetAccount(Guid id)
         {
-            return dummyAccounts.FirstOrDefault(a => a.AccountID == id);
+            return accounts.FirstOrDefault(a => a.AccountID == id);
         }
 
         public List<LoyaltyAccount> GetAccounts()
         {
-            return dummyAccounts;
+            return accounts;
         }
 
         public void Update(LoyaltyAccount account)
         {
-            var existing = GetById(account.AccountID);
+            var existing = GetAccount(account.AccountID);
 
             if (existing != null)
             {
@@ -80,27 +59,27 @@ namespace FLIGHTLoyaltyCardDataService
             }
         }
 
-        public void Delete(Guid id)
+        public void DeleteAccount(Guid id)
         {
-            var account = GetById(id);
+            var account = GetAccount(id);
 
             if (account != null)
-                dummyAccounts.Remove(account);
+                accounts.Remove(account);
         }
 
         public List<RewardOption> GetRewards()
         {
-            return dummyRewards;
+            return rewards;
         }
 
         public RewardOption? GetRewardById(int rewardId)
         {
-            return dummyRewards.FirstOrDefault(r => r.RewardID == rewardId);
+            return rewards.FirstOrDefault(r => r.RewardID == rewardId);
         }
 
-        public VoucherCode? GetVoucherByCode(string code)
+        public VoucherCode? GetVoucher(string code)
         {
-            return dummyVouchers.FirstOrDefault(v => v.Code == code.ToUpper().Trim());
+            return vouchers.FirstOrDefault(v => v.Code == code.ToUpper().Trim());
         }
     }
 }

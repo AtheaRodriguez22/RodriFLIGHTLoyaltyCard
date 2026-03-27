@@ -8,32 +8,28 @@ namespace FLIGHTLoyaltyCardDataService
     public class LoyaltyDataService
     {
         private List<LoyaltyAccount> accounts = new List<LoyaltyAccount>();
-        private List<RewardOption> rewards = new List<RewardOption>();
-        private List<VoucherCode> vouchers = new List<VoucherCode>();
+        //private List<RewardOption> rewards = new List<RewardOption>();
+        //private List<VoucherCode> vouchers = new List<VoucherCode>();
 
-        public LoyaltyDataService()
-        {
-            accounts.Add(new LoyaltyAccount
-            {
-                Name = "Athea",
-                Email = "abctest@email.com",
-                Contact = "09999999999",
-                Points = 500
-            });
-            rewards.Add(new RewardOption { RewardID = 1, Name = "KFC", Cost = 100 });
-            rewards.Add(new RewardOption { RewardID = 2, Name = "Jollibee", Cost = 120 });
-            rewards.Add(new RewardOption { RewardID = 3, Name = "Wendy's", Cost = 150 });
-            rewards.Add(new RewardOption { RewardID = 4, Name = "McDonald's", Cost = 130 });
-            rewards.Add(new RewardOption { RewardID = 5, Name = "Flight Discount", Cost = 300 });
-
-            vouchers.Add(new VoucherCode { Code = "FLY50", Points = 50 });
-            vouchers.Add(new VoucherCode { Code = "BONUS100", Points = 100 });
-            vouchers.Add(new VoucherCode { Code = "WELCOME200", Points = 200 });
-        }
-        public void Add(LoyaltyAccount account)
+        public void Add(LoyaltyAccount account) 
         {
             accounts.Add(account);
         }
+        //    Name = "Athea",
+        //    Email = "abctest@email.com",
+        //    Contact = "09999999999",
+        //    Points = 500
+        //});
+        //rewards.Add(new RewardOption { RewardId = 1, Name = "KFC", Cost =  });
+        //rewards.Add(new RewardOption { RewardId = 2, Name = "Jollibee", Cost =  });
+        //rewards.Add(new RewardOption { RewardId = 3, Name = "Wendy's", Cost =  });
+        //rewards.Add(new RewardOption { RewardId = 4, Name = "McDonald's", Cost = });
+        //new RewardOption { RewardID = 5, Name = "Flight Discount", Cost =  },
+        //new RewardOption { RewardID = 5, Name = "Business Class", Cost =  }, 
+
+            //vouchers.Add(new VoucherCode { Code = "FLY50", Points = 50 });
+            //vouchers.Add(new VoucherCode { Code = "BONUS100", Points = 100 });
+            //vouchers.Add(new VoucherCode { Code = "WELCOME200", Points = 200 });
         public LoyaltyAccount? GetAccount(Guid id)
         {
             return accounts.FirstOrDefault(a => a.AccountID == id);
@@ -62,24 +58,22 @@ namespace FLIGHTLoyaltyCardDataService
         public void DeleteAccount(Guid id)
         {
             var account = GetAccount(id);
-
             if (account != null)
                 accounts.Remove(account);
         }
-
         public List<RewardOption> GetRewards()
         {
-            return rewards;
+            return RewardOption.DefaultRewards.ToList();
         }
-
         public RewardOption? GetRewardById(int rewardId)
         {
-            return rewards.FirstOrDefault(r => r.RewardID == rewardId);
+            return RewardOption.DefaultRewards.FirstOrDefault(r => r.RewardId == rewardId);
         }
 
         public VoucherCode? GetVoucher(string code)
         {
-            return vouchers.FirstOrDefault(v => v.Code == code.ToUpper().Trim());
+            return VoucherCode.DefaultVouchers
+                .FirstOrDefault(v => v.Code.Equals(code, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

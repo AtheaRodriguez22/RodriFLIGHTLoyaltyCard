@@ -14,23 +14,25 @@ namespace FLIGHTLoyaltyCardModels
         public string Email { get; set; } = "";
         public string Contact { get; set; } = "";
 
-        public int Points { get; set; } = 0;
         public List<string> PointsHistory { get; set; } = new List<string>();
         public List<string> UsedVouchers { get; set; } = new List<string>();
-        public int UsedCount { get; set; } = 0;
+        public int Points { get; set; }
+        //public int UsedCount { get; set; } = 0;
     }
     public class RewardOption
     {
-        public int RewardID { get; set; }
+        public int RewardId { get; set; }
         public string Name { get; set; } = "";
         public int Cost { get; set; }
 
-        public static RewardOption[] DefaultRewards = new RewardOption[] { //function: need since mawawala reward option
-        new RewardOption { RewardID = 1, Name = "KFC",             Cost = 100 },
-        new RewardOption { RewardID = 2, Name = "Jollibee",        Cost = 120 },
-        new RewardOption { RewardID = 3, Name = "Wendy's",         Cost = 150 },
-        new RewardOption { RewardID = 4, Name = "McDonald's",      Cost = 130 },
-        new RewardOption { RewardID = 5, Name = "Flight Discount", Cost = 300 },
+        public static RewardOption[] DefaultRewards = new RewardOption[] { 
+        new RewardOption { RewardId = 1, Name = "KFC",             Cost = 2000 },
+        new RewardOption { RewardId = 2, Name = "Jollibee",        Cost = 3000 },
+        new RewardOption { RewardId = 3, Name = "Wendy's",         Cost = 4000 },
+        new RewardOption { RewardId = 4, Name = "McDonald's",      Cost = 4000 },
+        new RewardOption { RewardId = 5, Name = "Flight Discount", Cost = 10000 },
+        new RewardOption { RewardId = 6, Name = "Business Class", Cost = 10000 },
+
     };
     }
    public class VoucherCode

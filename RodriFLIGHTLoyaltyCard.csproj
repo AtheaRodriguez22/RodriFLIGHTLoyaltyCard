@@ -7,4 +7,26 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="FLIGHTLoyaltyCardAppService\**" />
+    <Compile Remove="FLIGHTLoyaltyCardDataService\**" />
+    <Compile Remove="FLIGHTLoyaltyCardModels\**" />
+    <EmbeddedResource Remove="FLIGHTLoyaltyCardAppService\**" />
+    <EmbeddedResource Remove="FLIGHTLoyaltyCardDataService\**" />
+    <EmbeddedResource Remove="FLIGHTLoyaltyCardModels\**" />
+    <None Remove="FLIGHTLoyaltyCardAppService\**" />
+    <None Remove="FLIGHTLoyaltyCardDataService\**" />
+    <None Remove="FLIGHTLoyaltyCardModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="LoyaltyAccount.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="FLIGHTLoyaltyCardAppService\FLIGHTLoyaltyCardAppService.csproj" />
+    <ProjectReference Include="FLIGHTLoyaltyCardDataService\FLIGHTLoyaltyCardDataService.csproj" />
+    <ProjectReference Include="FLIGHTLoyaltyCardModels\FLIGHTLoyaltyCardModels.csproj" />
+  </ItemGroup>
+
 </Project>

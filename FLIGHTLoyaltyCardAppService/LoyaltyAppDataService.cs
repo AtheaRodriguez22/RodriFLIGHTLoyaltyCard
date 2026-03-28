@@ -2,9 +2,14 @@
 
 namespace FLIGHTLoyaltyCardAppService
 {
-    public class LoyaltyDataService
+    public class LoyaltyAppDataService
     {
         internal void Add(LoyaltyAccount account)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Delete(Guid accountId)
         {
             throw new NotImplementedException();
         }
@@ -35,6 +40,11 @@ namespace FLIGHTLoyaltyCardAppService
         }
 
         internal VoucherCode? GetVoucher(string code)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Save(LoyaltyAccount account)
         {
             throw new NotImplementedException();
         }

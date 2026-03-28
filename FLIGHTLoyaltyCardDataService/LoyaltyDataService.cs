@@ -8,9 +8,7 @@ namespace FLIGHTLoyaltyCardDataService
     public class LoyaltyDataService
     {
         private List<LoyaltyAccount> accounts = new List<LoyaltyAccount>();
-        //private List<RewardOption> rewards = new List<RewardOption>();
-        //private List<VoucherCode> vouchers = new List<VoucherCode>();
-
+    
         public void Add(LoyaltyAccount account) 
         {
             accounts.Add(account);
@@ -49,6 +47,7 @@ namespace FLIGHTLoyaltyCardDataService
                 existing.Name = account.Name;
                 existing.Email = account.Email;
                 existing.Contact = account.Contact;
+                existing.FlightNumber = account.FlightNumber; //new add
                 existing.Points = account.Points;
                 existing.PointsHistory = account.PointsHistory;
                 existing.UsedVouchers = account.UsedVouchers;

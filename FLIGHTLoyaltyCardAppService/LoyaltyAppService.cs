@@ -1,4 +1,5 @@
 ﻿using FLIGHTLoyaltyCardModels;
+using FLIGHTLoyaltyCardDataService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,10 @@ namespace FLIGHTLoyaltyCardAppService
 {
     public class LoyaltyAppService
     {
+        
         private readonly LoyaltyDataService _dataService;
 
+        
         public LoyaltyAppService(LoyaltyDataService dataService)
         {
             _dataService = dataService;
@@ -31,22 +34,11 @@ namespace FLIGHTLoyaltyCardAppService
         {
             _dataService.Update(account);
         }
-            //var existing = GetById(account.AccountID);
-            //if (existing == null) return;
-
-            //existing.Name = account.Name;
-            //existing.Email = account.Email;
-            //existing.Contact = account.Contact;
-            //existing.Points = account.Points;
-            //existing.PointsHistory = account.PointsHistory;
-            //existing.UsedVouchers = account.UsedVouchers;
 
         public void Delete(Guid accountId)
         {
             _dataService.DeleteAccount(accountId);
-            //var account = GetById(accountId);
-            //if (account != null)
-            //    _accounts.Remove(account);
+            
         }
         public List<RewardOption> GetRewards()
         {
@@ -63,3 +55,4 @@ namespace FLIGHTLoyaltyCardAppService
         }
     }
 }
+

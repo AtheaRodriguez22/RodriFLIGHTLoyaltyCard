@@ -13,7 +13,7 @@ namespace FLIGHTLoyaltyCard
         {
             static void Main(string[] args)
             {
-                LoyaltyDataService_DB dataService = new LoyaltyDataService_DB();
+                LoyaltyDataService dataService = new LoyaltyDataService();
                 LoyaltyAppService appService = new LoyaltyAppService(dataService);
 
                 LoyaltyAccount currentAccount = null;
@@ -130,7 +130,7 @@ namespace FLIGHTLoyaltyCard
                             Console.WriteLine($"Voucher '{code}' applied! Total: {currentAccount.Points} pts.");
                             break;
 
-                        case 6: // Delete Account
+                        case 6: // DELETE ACC
                             if (currentAccount == null) { Console.WriteLine("No account found."); break; }
                             Console.Write("Are you sure you want to delete your account? (yes/no): ");
                             if ((Console.ReadLine() ?? "").Trim().ToLower() == "yes")

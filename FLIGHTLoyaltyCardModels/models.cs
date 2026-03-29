@@ -12,12 +12,11 @@ namespace FLIGHTLoyaltyCardModels
         public string Name { get; set; } = "";
         public string Email { get; set; } = "";
         public string Contact { get; set; } = "";
-        public string FlightNumber { get; set; } = ""; // new added
+        public string FlightNumber { get; set; } = ""; // new added 
 
         public List<string> PointsHistory { get; set; } = new List<string>();
         public List<string> UsedVouchers { get; set; } = new List<string>();
         public int Points { get; set; }
-        //public int UsedCount { get; set; } = 0;
 
         public string GetTier()// new add
         {

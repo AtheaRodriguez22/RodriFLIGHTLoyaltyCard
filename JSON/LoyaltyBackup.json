@@ -1,0 +1,51 @@
+[
+  {
+    "AccountID": "f1ed60f9-004d-4217-b66d-aea2f6d49503",
+    "Name": "Athea Irish",
+    "Email": "airodriguez@gmail.com",
+    "Contact": "09123456789",
+    "FlightNumber": "12345",
+    "PointsHistory": [],
+    "UsedVouchers": [],
+    "Points": 2000
+  },
+  {
+    "AccountID": "66343077-e03d-4dce-93c8-a53479fbae82",
+    "Name": "Irish",
+    "Email": "irish@qwerty.com",
+    "Contact": "01928736746",
+    "FlightNumber": "0987",
+    "PointsHistory": [
+      "[START] Account created with 10000 points.",
+      "[REDEEM] KFC redeemed for 2000 pts.",
+      "[REDEEM] Jollibee redeemed for 3000 pts.",
+      "[REDEEM] McDonald\u0027s redeemed for 4000 pts."
+    ],
+    "UsedVouchers": [],
+    "Points": 1000
+  },
+  {
+    "AccountID": "0a64a754-c377-4b55-88b5-39b2abdf7d60",
+    "Name": "Athea Irish",
+    "Email": "air@gmail.com",
+    "Contact": "09876543212",
+    "FlightNumber": "09876",
+    "PointsHistory": [
+      "[START] Account created with 10000 points."
+    ],
+    "UsedVouchers": [],
+    "Points": 10000
+  },
+  {
+    "AccountID": "84bd92ba-3393-4107-a90f-27f5f6c136f1",
+    "Name": "Coco",
+    "Email": "coconut@gmail.com",
+    "Contact": "09182736451",
+    "FlightNumber": "10000",
+    "PointsHistory": [
+      "[START] Account created with 10000 points."
+    ],
+    "UsedVouchers": [],
+    "Points": 10000
+  }
+]

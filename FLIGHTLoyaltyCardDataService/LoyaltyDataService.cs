@@ -8,8 +8,8 @@ namespace FLIGHTLoyaltyCardDataService
     public class LoyaltyDataService
     {
         private List<LoyaltyAccount> accounts = new List<LoyaltyAccount>();
-    
-        public void Add(LoyaltyAccount account) 
+
+        public void Add(LoyaltyAccount account)
         {
             accounts.Add(account);
         }
@@ -25,9 +25,9 @@ namespace FLIGHTLoyaltyCardDataService
         //new RewardOption { RewardID = 5, Name = "Flight Discount", Cost =  },
         //new RewardOption { RewardID = 5, Name = "Business Class", Cost =  }, 
 
-            //vouchers.Add(new VoucherCode { Code = "FLY50", Points = 50 });
-            //vouchers.Add(new VoucherCode { Code = "BONUS100", Points = 100 });
-            //vouchers.Add(new VoucherCode { Code = "WELCOME200", Points = 200 });
+        //vouchers.Add(new VoucherCode { Code = "FLY50", Points = 50 });
+        //vouchers.Add(new VoucherCode { Code = "BONUS100", Points = 100 });
+        //vouchers.Add(new VoucherCode { Code = "WELCOME200", Points = 200 });
         public LoyaltyAccount? GetAccount(Guid id)
         {
             return accounts.FirstOrDefault(a => a.AccountID == id);

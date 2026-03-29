@@ -9,10 +9,10 @@ namespace FLIGHTLoyaltyCardAppService
     public class LoyaltyAppService
     {
         
-        private readonly LoyaltyDataService _dataService;
+        private readonly LoyaltyDataService_DB _dataService;
 
         
-        public LoyaltyAppService(LoyaltyDataService dataService)
+        public LoyaltyAppService(LoyaltyDataService_DB dataService)
         {
             _dataService = dataService;
         }

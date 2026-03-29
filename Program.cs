@@ -13,7 +13,7 @@ namespace FLIGHTLoyaltyCard
         {
             static void Main(string[] args)
             {
-                LoyaltyDataService dataService = new LoyaltyDataService();
+                LoyaltyDataService_DB dataService = new LoyaltyDataService_DB();
                 LoyaltyAppService appService = new LoyaltyAppService(dataService);
 
                 LoyaltyAccount currentAccount = null;
@@ -66,7 +66,7 @@ namespace FLIGHTLoyaltyCard
                             break;
 
 
-                    case 2:
+                    case 2: //EDIT
                         if (currentAccount == null) { Console.WriteLine("No account found."); break; }
                         Console.Write("New Name: ");
                         currentAccount.Name = Console.ReadLine() ?? "";

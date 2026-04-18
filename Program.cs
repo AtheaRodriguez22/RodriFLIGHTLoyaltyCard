@@ -18,7 +18,14 @@ namespace FLIGHTLoyaltyCard
 
                 LoyaltyAccount currentAccount = null;
 
-                Console.WriteLine("===== WELCOME TO FLIGHT LOYALTY CARD SYSTEM =====");
+            // eto ang "Safety Catch"
+            // if click 'X', magrun muna itong code na ito bago ma-off app.
+            AppDomain.CurrentDomain.ProcessExit += (s, e) =>
+            {
+                Console.WriteLine("\nGoodbye!"); // ensure na sarado ang lahat ng SQL connections if ever
+            };
+
+            Console.WriteLine("===== WELCOME TO FLIGHT LOYALTY CARD SYSTEM =====");
 
                 int choice;
                 do
@@ -30,8 +37,8 @@ namespace FLIGHTLoyaltyCard
                     if (!has) Console.WriteLine("1. Create An Account");
                     Console.WriteLine((1 + n) + ". Edit Information");
                     Console.WriteLine((2 + n) + ". View Account & Points Summary");
-                    Console.WriteLine((3 + n) + ". Redeem Points");
-                    Console.WriteLine((4 + n) + ". Enter Voucher Code");
+                    Console.WriteLine((3 + n) + ". Redeem Points"); //FLY50, BONUS100, or WELCOME200
+                Console.WriteLine((4 + n) + ". Enter Voucher Code");
                     Console.WriteLine((5 + n) + ". Delete Account");
                     Console.WriteLine((6 + n) + ". Exit");
 

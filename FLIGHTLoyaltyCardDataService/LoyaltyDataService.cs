@@ -10,7 +10,7 @@ namespace FLIGHTLoyaltyCardDataService
 {
     public class LoyaltyDataService
     {
-        string connectionString = @"Server=localhost\SQLEXPRESS;Database=RodriFLIGHTLoyaltyCard;Trusted_Connection=True;";
+        string connectionString = @"Server=localhost\SQLEXPRESS;Database=RodriFLIGHTLoyaltyCard;Trusted_Connection=True;"; //method part ng sql
         private List<LoyaltyAccount> accounts = new List<LoyaltyAccount>();
         public void Add(LoyaltyAccount account)
         {
@@ -35,7 +35,7 @@ namespace FLIGHTLoyaltyCardDataService
                 cmd.Parameters.AddWithValue("@UsedVoucher", vouchersString);
                 cmd.Parameters.AddWithValue("@PointHistory", historyString);
 
-                cmd.ExecuteNonQuery(); // This actually runs the insert
+                cmd.ExecuteNonQuery(); 
                 accounts.Add(account);
             }
             finally
@@ -46,7 +46,7 @@ namespace FLIGHTLoyaltyCardDataService
             SaveDatabaseToJson();
         }
 
-        //    Name = "Athea"
+        //   ex. Name = "Athea"
         //    Email = "abctest@email.com"
         //    Contact = "09999999999"
         //    Points = 500
@@ -203,7 +203,7 @@ namespace FLIGHTLoyaltyCardDataService
                 Directory.CreateDirectory(folderPath);
             }
 
-            File.WriteAllText(filePath, jsonString);
+            File.WriteAllText(filePath, jsonString); 
         }
     }
 }
